@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 const HeroSection = () => {
   return (
     <div
@@ -15,6 +17,9 @@ const HeroSection = () => {
               Soluciones estratégicas y asesoría especializada para empresas
               globales. Contactanos para mas información.
             </h2>
+            <Button className="w-fit" size="lg">
+              Contactanos
+            </Button>
           </div>
           <div>Logo here</div>
         </div>
