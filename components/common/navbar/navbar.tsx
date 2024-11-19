@@ -10,7 +10,7 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <header className="w-full h-28 grid grid-cols-3 items-center justify-items-center px-20">
+    <header className="w-full h-28 flex justify-between items-center px-20">
       <div className="w-full flex justify-start">
         <Image src="/logo-color.png" alt="logo" height={1} width={160} />
       </div>
@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link
             href={item.path}
             key={item.title}
-            className="text-slate-800 font-medium hover:text-primary-600 py-1 transition-all"
+            className="text-slate-800 font-medium hover:text-primary-600 py-1 transition-all w-max"
           >
             {t(item.title)}
           </Link>
