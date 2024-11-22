@@ -23,7 +23,7 @@ const HeroSection2 = () => {
             <div className="flex gap-3">
               <Button
                 size="lg"
-                className="rounded-full bg-white hover:bg-white/80"
+                className="rounded-full bg-white transition-all hover:bg-white hover:ring-2 hover:ring-white/20 active:scale-95"
                 variant="secondary"
               >
                 {t("Contact us")}
