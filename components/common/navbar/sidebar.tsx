@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import LanguageSwitcher from "../languageSwitcher";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const Sidebar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed left-0 top-0 z-50 h-full w-full bg-black/50"
+            className="fixed left-0 top-0 z-50 h-full w-full bg-black/20"
             onClick={handleOutSideClick}
           >
             <motion.div
@@ -43,7 +44,7 @@ const Sidebar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.2 }}
-              className="fixed right-0 top-0 flex h-full w-72 flex-col bg-slate-200 p-5 text-slate-700"
+              className="fixed right-0 top-0 flex h-full w-72 flex-col bg-white p-5 text-slate-700"
               onClick={handleInsideClick}
             >
               <div className="flex w-full flex-row items-center justify-end">
@@ -54,27 +55,25 @@ const Sidebar = () => {
               </div>
               <div className="flex h-full w-full flex-col items-center justify-center gap-5">
                 {menuItems.map((item, index) => (
-                  <>
-                    <Link
-                      href={item.path}
-                      key={item.title}
-                      className="w-max py-1 font-medium transition-all"
+                  <Link
+                    href={item.path}
+                    className="w-full font-medium transition-all"
+                    key={index}
+                  >
+                    <Button
+                      variant="text"
+                      size="lg"
+                      className="w-full text-slate-800"
                     >
                       {t(item.title)}
-                    </Link>
-                    {index !== menuItems.length - 1 && (
-                      <div
-                        className="h-[1px] w-[60%] bg-black/20"
-                        key={index}
-                      />
-                    )}
-                  </>
+                    </Button>
+                  </Link>
                 ))}
               </div>
               <div className="mb-5 flex w-full flex-col items-center justify-center gap-10">
                 <LanguageSwitcher />
                 <Image
-                  src="/logo-white.png"
+                  src="/logo-color.png"
                   alt="logo"
                   width={120}
                   height={1}
