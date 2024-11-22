@@ -23,7 +23,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className="text-slate-800 cursor-pointer active:scale-95 transition-all"
+        className="cursor-pointer text-slate-800 transition-all active:scale-95"
         onClick={() => setOpen(!open)}
       >
         <Menu className="size-8" />
@@ -35,7 +35,7 @@ const Sidebar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 w-full h-full bg-black/50 z-50"
+            className="fixed left-0 top-0 z-50 h-full w-full bg-black/50"
             onClick={handleOutSideClick}
           >
             <motion.div
@@ -43,35 +43,35 @@ const Sidebar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.2 }}
-              className="fixed top-0 right-0 w-72 h-full bg-slate-200 p-5 flex flex-col text-slate-700"
+              className="fixed right-0 top-0 flex h-full w-72 flex-col bg-slate-200 p-5 text-slate-700"
               onClick={handleInsideClick}
             >
-              <div className="w-full flex flex-row justify-end items-center">
+              <div className="flex w-full flex-row items-center justify-end">
                 <X
-                  className="size-8 cursor-pointer active:scale-95 transition-all"
+                  className="size-8 cursor-pointer transition-all active:scale-95"
                   onClick={() => setOpen(false)}
                 />
               </div>
-              <div className="w-full flex flex-col gap-5 h-full justify-center items-center">
+              <div className="flex h-full w-full flex-col items-center justify-center gap-5">
                 {menuItems.map((item, index) => (
                   <>
                     <Link
                       href={item.path}
                       key={item.title}
-                      className="font-medium py-1 transition-all w-max"
+                      className="w-max py-1 font-medium transition-all"
                     >
                       {t(item.title)}
                     </Link>
                     {index !== menuItems.length - 1 && (
                       <div
-                        className="w-[60%] h-[1px] bg-black/20"
+                        className="h-[1px] w-[60%] bg-black/20"
                         key={index}
                       />
                     )}
                   </>
                 ))}
               </div>
-              <div className="w-full flex flex-col justify-center items-center gap-10 mb-5">
+              <div className="mb-5 flex w-full flex-col items-center justify-center gap-10">
                 <LanguageSwitcher />
                 <Image
                   src="/logo-white.png"

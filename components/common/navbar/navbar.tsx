@@ -11,22 +11,22 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <header className="w-full h-28  min-h-28 flex justify-between items-center px-20 md:px-5 md:h-20">
-      <div className="w-full flex justify-start">
+    <header className="flex h-28 min-h-28 w-full items-center justify-between px-20 md:h-20 md:px-5">
+      <div className="flex w-full justify-start">
         <Image src="/logo-color.png" alt="logo" height={1} width={160} />
       </div>
-      <div className="w-full flex justify-center gap-7 sm:hidden">
+      <div className="flex w-full justify-center gap-7 sm:hidden">
         {menuItems.map((item) => (
           <Link
             href={item.path}
             key={item.title}
-            className="text-slate-800 font-medium hover:text-primary-600 py-1 transition-all w-max"
+            className="w-max py-1 font-medium text-slate-800 transition-all hover:text-primary-600"
           >
             {t(item.title)}
           </Link>
         ))}
       </div>
-      <div className="w-full flex justify-end sm:hidden">
+      <div className="flex w-full justify-end sm:hidden">
         <LanguageSwitcher />
       </div>
       <div className="hidden sm:block">
