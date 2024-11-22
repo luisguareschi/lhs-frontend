@@ -6,6 +6,7 @@ import { menuItems } from "./menuItems";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../languageSwitcher";
 import Sidebar from "./sidebar";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -15,14 +16,16 @@ const Navbar = () => {
       <div className="flex w-full justify-start">
         <Image src="/logo-color.png" alt="logo" height={1} width={160} />
       </div>
-      <div className="flex w-full justify-center gap-7 sm:hidden">
+      <div className="flex w-full justify-center gap-2 sm:hidden">
         {menuItems.map((item) => (
-          <Link
-            href={item.path}
-            key={item.title}
-            className="w-max py-1 font-medium text-slate-800 transition-all hover:text-primary-600"
-          >
-            {t(item.title)}
+          <Link href={item.path} key={item.title}>
+            <Button
+              variant="text"
+              size="default"
+              className="w-max text-slate-800 hover:bg-primary-100 hover:text-primary-600 active:scale-95"
+            >
+              {t(item.title)}
+            </Button>
           </Link>
         ))}
       </div>
