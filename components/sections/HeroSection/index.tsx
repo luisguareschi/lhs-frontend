@@ -2,14 +2,16 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/common/navbar/navbar";
 const HeroSection = () => {
   return (
-    <div className="w-full h-screen bg-slate-50 flex flex-col relative">
-      <Navbar />
-      <div className="h-full flex justify-center items-center p-20 pt-10 gap-5">
-        <div className="flex flex-col gap-7 h-full w-full">
-          <h1 className="text-slate-800 text-6xl font-bold uppercase pr-5">
+    <div className="w-full h-screen bg-slate-50 flex flex-col justify-center items-center relative">
+      <div className="w-full absolute top-0">
+        <Navbar />
+      </div>
+      <div className="flex justify-center items-center p-20 pt-36 gap-5 md:p-5 max-w-[1500px]">
+        <div className="flex flex-col gap-7 h-full w-full md:items-center">
+          <h1 className="text-slate-800 text-6xl font-bold uppercase pr-5 xl:text-[2.7rem] xl:leading-[2.7rem] md:pr-0 md:text-4xl md:text-center">
             1 Luxembourg Hispanic American Services
           </h1>
-          <h2 className="text-slate-700 text-lg font-light text-balance leading-normal">
+          <h2 className="text-slate-700 text-lg font-light text-balance leading-normal xl:text-sm pr-10 md:pr-0 md:text-center">
             Soluciones estratégicas y asesoría especializada para empresas
             globales. Contactanos para mas información.
           </h2>
