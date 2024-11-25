@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { Toaster } from "react-hot-toast";
 
 const metadata: Metadata = {
-  title: "1Luxemburg- Hispanic- American Services",
+  title: "1Luxemburg - Hispanic- American Services",
   description: "1Luxembourg",
 };
 
