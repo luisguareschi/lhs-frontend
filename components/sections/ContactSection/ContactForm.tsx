@@ -3,10 +3,17 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from "lucide-react";
+import {
+  MailIcon,
+  PhoneIcon,
+  MapPinIcon,
+  SendIcon,
+  Loader2,
+} from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { useSendEmail } from "@/queries/email/useSendEmail";
 interface ContactItemProps {
   icon: React.ReactNode;
   title?: string;
@@ -47,6 +54,11 @@ const emptyForm = {
 export const ContactForm = () => {
   const { t } = useTranslation();
   const [form, setForm] = useState<typeof emptyForm>(emptyForm);
+  const { mutate: sendEmail, isPending: isSendingEmail } = useSendEmail({
+    onSuccess: () => {
+      setForm(emptyForm);
+    },
+  });
 
   const contactInfo: ContactItemProps[] = [
     {
@@ -69,8 +81,11 @@ export const ContactForm = () => {
   ];
 
   const handleSubmit = () => {
-    // TODO: Implement this using twilio sendgrid
-    setForm(emptyForm);
+    sendEmail({
+      from: form.fromEmail,
+      subject: form.subject,
+      content: form.message,
+    });
   };
 
   return (
@@ -94,6 +109,7 @@ export const ContactForm = () => {
               placeholder={t("Full name")}
               value={form.fromName}
               onChange={(e) => setForm({ ...form, fromName: e.target.value })}
+              disabled={isSendingEmail}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -105,6 +121,7 @@ export const ContactForm = () => {
               placeholder={t("Email address")}
               value={form.fromEmail}
               onChange={(e) => setForm({ ...form, fromEmail: e.target.value })}
+              disabled={isSendingEmail}
             />
           </div>
           <div className="col-span-2 flex flex-col gap-1">
@@ -116,6 +133,7 @@ export const ContactForm = () => {
               placeholder={t("Subject")}
               value={form.subject}
               onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              disabled={isSendingEmail}
             />
           </div>
           <div className="col-span-2 flex flex-col gap-1">
@@ -129,15 +147,18 @@ export const ContactForm = () => {
               className="resize-none"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
+              disabled={isSendingEmail}
             />
           </div>
           <Button
             className="col-span-2 w-fit gap-2 md:w-full"
             onClick={handleSubmit}
             variant="default"
+            disabled={isSendingEmail}
           >
             {t("Send message")}
-            <SendIcon className="size-4" />
+            {!isSendingEmail && <SendIcon className="size-4" />}
+            {isSendingEmail && <Loader2 className="size-4 animate-spin" />}
           </Button>
         </div>
       </div>
