@@ -68,7 +68,7 @@ export const ContactForm = () => {
 
   const handleSubmit = () => {
     // TODO: Implement this using twilio sendgrid
-    console.log(form);
+    setForm(emptyForm);
   };
 
   return (
