@@ -25,7 +25,7 @@ const ContactItem = ({ icon, title, description, href }: ContactItemProps) => {
         {href ? (
           <Link
             href={href}
-            className="transition-all hover:underline active:text-primary-950 md:text-sm"
+            className="transition-all hover:underline active:text-primary-200 md:text-sm"
           >
             <p className="min-w-[300px] md:min-w-0">{description}</p>
           </Link>
