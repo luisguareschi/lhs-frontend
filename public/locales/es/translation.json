@@ -7,5 +7,16 @@
   "Contact": "Contacto",
   "hero.description": "Soluciones estratégicas y asesoría especializada para empresas globales. Contáctanos para más información.",
   "Contact us": "Contáctanos",
-  "Learn more": "Conoce más"
+  "Learn more": "Conoce más",
+  "contact.title": "¿Quieres ponernos en contacto?",
+  "contact.description": "No dudes en contactarnos y nos encantará responder a tus preguntas.",
+  "Contact Info": "Información de Contacto",
+  "Full name": "Nombre completo",
+  "Email address": "Correo electrónico",
+  "Subject": "Asunto",
+  "Message": "Mensaje",
+  "Send message": "Enviar mensaje",
+  "Email": "Email",
+  "Phone number": "Teléfono",
+  "Address": "Dirección"
 }

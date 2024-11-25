@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 interface ContactItemProps {
   icon: React.ReactNode;
   title?: string;
@@ -44,24 +45,25 @@ const emptyForm = {
 };
 
 export const ContactForm = () => {
+  const { t } = useTranslation();
   const [form, setForm] = useState<typeof emptyForm>(emptyForm);
 
   const contactInfo: ContactItemProps[] = [
     {
       icon: <MailIcon className="size-4" />,
-      title: "Email",
+      title: t("Email"),
       description: "info@example.com",
       href: "mailto:info@example.com",
     },
     {
       icon: <PhoneIcon className="size-4" />,
-      title: "Phone number",
+      title: t("Phone number"),
       description: "+387 61 234 567",
       href: "tel:+38761234567",
     },
     {
       icon: <MapPinIcon className="size-4" />,
-      title: "Address",
+      title: t("Address"),
       description: "Luxemburgo, Luxemburgo",
     },
   ];
@@ -75,7 +77,7 @@ export const ContactForm = () => {
     <div className="flex overflow-hidden rounded-xl bg-white shadow-xl md:flex-col">
       <div className="flex flex-col gap-5 bg-primary-800 p-10 md:gap-3 md:p-6">
         <h1 className="text-2xl font-bold text-white md:text-xl">
-          Contact Info
+          {t("Contact Info")}
         </h1>
         {contactInfo.map((item) => (
           <ContactItem key={item.title} {...item} />
@@ -85,44 +87,44 @@ export const ContactForm = () => {
         <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-1">
             <label htmlFor="fullName" className="text-sm">
-              Full name
+              {t("Full name")}
             </label>
             <Input
               id="fullName"
-              placeholder="Full name"
+              placeholder={t("Full name")}
               value={form.fromName}
               onChange={(e) => setForm({ ...form, fromName: e.target.value })}
             />
           </div>
           <div className="flex flex-col gap-1">
             <label htmlFor="email" className="text-sm">
-              Email address
+              {t("Email address")}
             </label>
             <Input
               id="email"
-              placeholder="Email address"
+              placeholder={t("Email address")}
               value={form.fromEmail}
               onChange={(e) => setForm({ ...form, fromEmail: e.target.value })}
             />
           </div>
           <div className="col-span-2 flex flex-col gap-1">
             <label htmlFor="subject" className="text-sm">
-              Subject
+              {t("Subject")}
             </label>
             <Input
               id="subject"
-              placeholder="Subject"
+              placeholder={t("Subject")}
               value={form.subject}
               onChange={(e) => setForm({ ...form, subject: e.target.value })}
             />
           </div>
           <div className="col-span-2 flex flex-col gap-1">
             <label htmlFor="message" className="text-sm">
-              Message
+              {t("Message")}
             </label>
             <Textarea
               id="message"
-              placeholder="Message"
+              placeholder={t("Message")}
               rows={4}
               className="resize-none"
               value={form.message}
@@ -134,7 +136,7 @@ export const ContactForm = () => {
             onClick={handleSubmit}
             variant="default"
           >
-            Send message
+            {t("Send message")}
             <SendIcon className="size-4" />
           </Button>
         </div>
