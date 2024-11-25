@@ -1,5 +1,6 @@
 export interface SendEmailProps {
-  from: string;
+  fromName: string;
   subject: string;
   content: string;
+  fromEmail: string;
 }

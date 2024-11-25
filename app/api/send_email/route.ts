@@ -1,19 +1,24 @@
+import { SendEmailProps } from "@/queries/email/types";
 import axios from "axios";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
+  const body: SendEmailProps = await req.json();
 
   // validate body
-  if (!body.from) {
-    return NextResponse.json({ error: "Missing from email" }, { status: 400 });
+  if (!body.fromName) {
+    return NextResponse.json({ error: "Missing name" }, { status: 400 });
   }
   if (!body.subject) {
     return NextResponse.json({ error: "Missing subject" }, { status: 400 });
   }
   if (!body.content) {
     return NextResponse.json({ error: "Missing content" }, { status: 400 });
+  }
+
+  if (!body.fromEmail) {
+    return NextResponse.json({ error: "Missing email" }, { status: 400 });
   }
 
   try {
@@ -26,7 +31,7 @@ export async function POST(req: NextRequest) {
           },
         ],
         from: { email: process.env.SENDGRID_FROM_EMAIL },
-        subject: `${body.from} (${body.fromEmail}) - ${body.subject}`,
+        subject: `${body.fromName} (${body.fromEmail}) - ${body.subject}`,
         content: [{ type: "text/plain", value: body.content }],
       },
       {

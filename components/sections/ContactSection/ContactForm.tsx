@@ -82,7 +82,8 @@ export const ContactForm = () => {
 
   const handleSubmit = () => {
     sendEmail({
-      from: form.fromEmail,
+      fromName: form.fromName,
+      fromEmail: form.fromEmail,
       subject: form.subject,
       content: form.message,
     });
