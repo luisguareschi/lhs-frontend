@@ -12,11 +12,8 @@ const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
   return (
     <Select value={i18n.language} onValueChange={i18n.changeLanguage}>
-      <SelectTrigger
-        className="w-32 focus:ring-0 focus:ring-offset-0 text-slate-700 font-medium 
-      focus:ring-transparent rounded-full justify-center gap-2"
-      >
-        <Globe className="w-4 h-4" />
+      <SelectTrigger className="w-32 justify-center gap-2 rounded-full font-medium text-slate-700 focus:ring-0 focus:ring-transparent focus:ring-offset-0">
+        <Globe className="h-4 w-4" />
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>

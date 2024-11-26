@@ -9,7 +9,7 @@ export const AnimatedGradient = ({ children, className }: Props) => {
   return (
     <div className="relative h-full w-full overflow-hidden">
       {/* Background layer */}
-      <div className="animate-gradient absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400 via-primary-700 to-secondary-500 bg-[length:400%_400%]" />
+      <div className="absolute inset-0 animate-gradient rounded-2xl bg-gradient-to-br from-primary-400 via-primary-700 to-secondary-500 bg-[length:400%_400%]" />
 
       {/* Overlay patterns */}
       <div className="absolute inset-0 opacity-30">
