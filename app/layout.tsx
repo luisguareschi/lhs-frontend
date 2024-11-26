@@ -6,17 +6,10 @@ import QueryProviders from "./query_providers";
 const inter = Inter({ subsets: ["latin"] });
 import { Toaster } from "react-hot-toast";
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "1Luxemburg - Hispanic- American Services",
   description: "1Luxembourg",
 };
-
-export function generateMetadata({ params }: { params: { lang: string } }) {
-  return {
-    ...metadata,
-    lang: params.lang || "en",
-  };
-}
 
 export default function RootLayout({
   children,
