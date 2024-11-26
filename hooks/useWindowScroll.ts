@@ -5,7 +5,7 @@ export const useWindowScroll = () => {
   const breakpoints = useBreakpoints();
   const [scrollY, setScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState("");
-  const offset = !breakpoints.sm ? 25 : 0;
+  const offset = !breakpoints.sm ? 0 : 0;
 
   useEffect(() => {
     let previousScrollY = window.scrollY;
