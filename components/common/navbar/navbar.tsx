@@ -7,12 +7,22 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../languageSwitcher";
 import Sidebar from "./sidebar";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-const Navbar = () => {
+interface NavbarProps {
+  variant?: "overlay";
+}
+
+const Navbar = ({ variant }: NavbarProps) => {
   const { t } = useTranslation();
 
   return (
-    <header className="flex h-28 min-h-28 w-full items-center justify-between px-20 md:h-20 md:px-5">
+    <header
+      className={cn(
+        "flex h-28 min-h-28 w-full items-center justify-between px-20 md:h-20 md:px-5",
+        variant === "overlay" && "h-24 min-h-24",
+      )}
+    >
       <div className="flex w-full justify-start">
         <Image src="/logo-color.png" alt="logo" height={1} width={160} />
       </div>
